@@ -1,0 +1,56 @@
+.result {
+  color: red;
+  background-color: chartreuse;
+  border-radius: 15px;
+  padding: 15px;
+  margin:20px;
+  font-weight: bold;
+  font-size: 20px;
+}
+.culc {
+  background-color: aqua;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap:20px;
+
+  }
+.culc .container {
+  display: flex;
+  flex-direction: row;
+  gap: 13px
+}
+.input {
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  display: flex;
+  flex-direction: row;
+  border-radius: 15px;
+  padding: 10px;
+  margin:20px;
+  color: green;
+}
+.operation {
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  display: flex;
+  flex-direction: row;
+  border-radius: 15px;
+  padding: 10px;
+  margin:20px;
+}
+button {
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  display: flex;
+  flex-direction: row;
+  border-radius: 15px;
+  padding: 10px;
+  margin:20px;
+  color: green;
+}
+
+
