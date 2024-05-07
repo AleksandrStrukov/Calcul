@@ -1,11 +1,38 @@
-
 <div class="calc">
-  <input type="number" class="input" [(ngModel)]="first">
-  <select class="operation" [(ngModel)]="operation">
-    <option [value]="operation" *ngFor='let operation of operations'>{{ operation }}</option>
-  </select>
-  <input type="number" class="input" [(ngModel)]="second">
+  <h2>Calc</h2>
+  <ng-container>
+    <div class="calcContainer" *ngFor='let group of calcGroups; let i = index'>
 
-  <span class="result">{{ result ? result : 'click on process' }}</span>
-  <button (click)="calc()">PROCESS</button>
+      <select class="operation" [(ngModel)]="group.first.midificator">
+        <option [value]="modificator" *ngFor='let modificator of calcModification | keyvalue'>{{ modificator.value }}
+        </option>
+      </select>
+
+
+      <input type="number" class="input" [(ngModel)]="group.first.value">
+      <select class="operation" [(ngModel)]="group.operation">
+        <option [value]="operation" *ngFor='let operation of calcOperation | keyvalue'>{{ operation.value }}</option>
+      </select>
+
+      <select class="operation" [(ngModel)]="group.second.midificator">
+        <option [value]="modificator" *ngFor='let modificator of calcModification | keyvalue'>{{ modificator.value }}
+        </option>
+      </select>
+
+      <input type="number" class="input" [(ngModel)]="group.second.value">
+
+      <button *ngIf='i!==0' (click)="removeGroup(i)">deleteGroup</button>
+
+      <select class="calc_select" [(ngModel)]="operationsBeetweenGroup[i]" *ngIf="operationsBeetweenGroup.length > i">
+        <option [value]="operation.value" *ngFor='let operation of calcOperation | keyvalue'>{{ operation.value }}
+        </option>
+      </select>
+
+      <span class="result">{{ result ? result : 'click on process' }}</span>
+      <button (click)="calc()">PROCESS</button>
+      <button (click)="addGroup()">add Group</button>
+    </div>
+
+  </ng-container>
+
 </div>

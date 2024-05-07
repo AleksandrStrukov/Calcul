@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {group} from "@angular/animations";
 
 interface CalcGroup {
   first: CalcVar
@@ -47,25 +48,63 @@ export class MyCalcComponent {
       operation: CalcOperations.plus
     }
   ]
-   public history: string[] =[]
+  public history: string[] = []
   public operationsBeetweenGroup: CalcOperations[] = []
 
   public result?: number
 
-  public calc() {
-    switch (this.operation) {
-      case '+':
-        this.result = this.first + this.second;
-        break
-      case '-':
-        this.result = this.first - this.second;
-        break
-      case '*':
-        this.result = this.first * this.second;
-        break
-      case '/':
-        this.result = this.first / this.second;
-        break
+
+  public calcGroup() {
+
+  }
+
+  public calcValueWithModificator(value: CalcVar): number {
+    switch (value.midificator) {
+      case CulcModifies.none:
+        return value.value;
+      case CulcModifies.cos:
+        return Math.cos(value.value);
+      case CulcModifies.sin:
+        return Math.cos(value.value);
+      case CulcModifies.square:
+        return Math.pow(value.value, 2);
     }
   }
+
+  public calc(first: number, second: number, operation: CalcOperations): number {
+    switch (operation) {
+      case CalcOperations.plus:
+        return first + second;
+
+      case CalcOperations.minus:
+        return first - second;
+
+      case CalcOperations.multiply:
+        return first * second;
+
+      case CalcOperations.divide:
+        return first / second;
+
+    }
+  }
+
+  public addGroup() {
+    this.calcGroups.push({
+      first: {
+        value: 0,
+        midificator: CulcModifies.none
+      },
+      second: {
+        value: 0,
+        midificator: CulcModifies.none
+      }, operation: CalcOperations.plus
+    })
+    this.operationsBeetweenGroup.push(this.calcOperation.plus)
+  }
+
+  public removeGroup(index: number) {
+    this.calcGroups.splice(index, 1)
+  }
+
+  protected readonly group = group;
 }
