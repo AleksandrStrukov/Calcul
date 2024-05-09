@@ -55,7 +55,30 @@ export class MyCalcComponent {
 
 
   public calcGroup() {
+    let result = 0
+    let tempHistory: string[] = []
+    this.calcGroups.forEach((group, i) => {
+      if (i === 0) {
+        result = this.calc(this.calcValueWithModificator(group.first), this.calcValueWithModificator(group.second), group.operation)
 
+      } else {
+        let tempResult = this.calc(this.calcValueWithModificator(group.first), this.calcValueWithModificator(group.second), group.operation)
+        result = this.calc(result, tempResult, this.operationsBeetweenGroup[i - 1])
+
+      }
+      tempHistory.push(
+        `(
+          ${group.first.midificator !== CulcModifies.none ? group.first.midificator : ''} ${group.first.value}
+          ${group.operation}
+          ${group.second.midificator !== CulcModifies.none ? group.second.midificator : ''} ${group.second.value}
+
+          )`
+      )
+    })
+
+    tempHistory.push(`= ${result}`)
+    this.history.push(tempHistory.join(' '))
+    this.result = result
   }
 
   public calcValueWithModificator(value: CalcVar): number {

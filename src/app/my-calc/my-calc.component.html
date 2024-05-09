@@ -28,8 +28,13 @@
         </option>
       </select>
 
+      <div class="calcHistory">
+        <span>HISTORY</span>
+        <span *ngFor="let object of history; let i = index">{{ i + 1 }} {{ object }}</span>
+      </div>
+
       <span class="result">{{ result ? result : 'click on process' }}</span>
-      <button (click)="calc()">PROCESS</button>
+      <button (click)="calcGroup()">PROCESS</button>
       <button (click)="addGroup()">add Group</button>
     </div>
 
