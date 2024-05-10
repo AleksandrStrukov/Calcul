@@ -1,3 +1,23 @@
+.calcContainer {
+  width: 80%;
+  border-radius: 50px;
+  color: chocolate;
+  background-color: aqua;
+  margin: 20px;
+
+}
+.firstGroup {
+  display: flex;
+  flex-direction: row;
+}
+.modificator {
+  margin: 20px;
+  color: red;
+  background-color: greenyellow;
+  border-radius: 15px;
+  width: 120px;
+  font-size: 15px;
+}
 .result {
   color: red;
   background-color: chartreuse;
@@ -6,30 +26,20 @@
   margin:20px;
   font-weight: bold;
   font-size: 20px;
-}
-.culc {
-  background-color: aqua;
-  border-radius: 15px;
-  display: flex;
-  flex-direction: column;
-  gap:20px;
 
-  }
-.culc .container {
-  display: flex;
-  flex-direction: row;
-  gap: 13px
 }
-.input {
+
+
+input {
   font-size: 20px;
   font-weight: bold;
   outline: none;
-  display: flex;
-  flex-direction: row;
   border-radius: 15px;
   padding: 10px;
   margin:20px;
-  color: green;
+  c;
+  width: 90px;
+
 }
 .operation {
   font-size: 20px;
@@ -51,6 +61,20 @@ button {
   padding: 10px;
   margin:20px;
   color: green;
+
+}
+.calcHistory{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 40px;
+  font-size: 25px;
+  font-weight: bold;
+  background-color: red;
+  color: white;
+  width: 500px;
+  border-radius: 15px;
+  padding: 15px;
 }
 
 

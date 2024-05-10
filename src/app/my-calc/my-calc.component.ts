@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {group} from "@angular/animations";
 
 interface CalcGroup {
   first: CalcVar
@@ -88,7 +87,7 @@ export class MyCalcComponent {
       case CulcModifies.cos:
         return Math.cos(value.value);
       case CulcModifies.sin:
-        return Math.cos(value.value);
+        return Math.sin(value.value);
       case CulcModifies.square:
         return Math.pow(value.value, 2);
     }
@@ -122,12 +121,11 @@ export class MyCalcComponent {
         midificator: CulcModifies.none
       }, operation: CalcOperations.plus
     })
-    this.operationsBeetweenGroup.push(this.calcOperation.plus)
+    this.operationsBeetweenGroup.push(CalcOperations.plus)
   }
 
   public removeGroup(index: number) {
     this.calcGroups.splice(index, 1)
   }
 
-  protected readonly group = group;
 }
